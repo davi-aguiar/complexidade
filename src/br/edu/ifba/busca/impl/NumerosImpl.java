@@ -7,13 +7,15 @@ import br.edu.ifba.busca.numeros.Numeros;
 public class NumerosImpl implements Numeros{
 
     @Override
-    public int[] gerar(int total) {
+    public int[] gerar(int total, boolean embaralhar) {
         int[] vetor = new int[total];
 
         for(int i = 0;i <total ; i++){
             vetor[i] = i;
         }
 
+
+        if(embaralhar){
         Random randomizador = new Random();
         for(int i = 0; i<total; i++){
             int posicao = randomizador.nextInt(total);
@@ -22,7 +24,7 @@ public class NumerosImpl implements Numeros{
             vetor[i] = vetor [posicao];
             vetor[posicao] = temp;
         }
-
+    }
         return vetor;
     }
     
